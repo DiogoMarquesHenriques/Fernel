@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply antialiased text-gray-800 bg-white;
+  }
+}
+
+/* Hero animations with delay support */
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out forwards;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 font-semibold text-agrix-green bg-agrix-yellow rounded-lg
+           transition-all duration-300 hover:bg-agrix-yellow-dark hover:shadow-lg hover:scale-[1.02]
+           focus:outline-none focus:ring-2 focus:ring-agrix-yellow focus:ring-offset-2 focus:ring-offset-agrix-green
+           active:scale-[0.98];
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 font-semibold text-white border-2 border-white rounded-lg
+           transition-all duration-300 hover:bg-white hover:text-agrix-green
+           focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-agrix-green;
+  }
+  .section-heading {
+    @apply text-3xl md:text-4xl font-bold text-agrix-green tracking-tight;
+  }
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+  }
+}
